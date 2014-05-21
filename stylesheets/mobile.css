@@ -93,6 +93,33 @@ body {
 ol, ul {
   list-style: none;
 }
+.linkedin {
+    background-image: url('../images/InBug-60px-TM.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 59px;
+    height: 49px;
+    display: inline-block;
+}
+.gplus {
+    background-image: url('../images/gplus-64.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 49px;
+    height: 49px;
+    display: inline-block;
+}
+.twitter {
+    background-image: url('../images/Twitter_logo_blue.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 49px;
+    display: inline-block;
+}
 blockquote, q {
   quotes: none;
 }

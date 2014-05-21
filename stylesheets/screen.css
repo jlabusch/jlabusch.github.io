@@ -92,6 +92,33 @@ body {
 ol, ul {
   list-style: none;
 }
+.linkedin {
+    background-image: url('../images/InBug-60px-TM.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 59px;
+    height: 49px;
+    display: inline-block;
+}
+.gplus {
+    background-image: url('../images/gplus-64.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 49px;
+    height: 49px;
+    display: inline-block;
+}
+.twitter {
+    background-image: url('../images/Twitter_logo_blue.png');
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 49px;
+    display: inline-block;
+}
 blockquote, q {
   quotes: none;
 }
@@ -179,7 +206,6 @@ header h1 {
   font-size: 2.5em;
   font-weight: 800;
   font-style: normal;
-  text-transform: uppercase;
   color: #ece4d8;
   text-align: center;
   line-height:1;
@@ -322,7 +348,6 @@ footer span.ribbon-inner a {
   bottom: -1px;
   color: #7eb0d2;
   font-family: 'Open Sans', Myriad, Calibri, sans-serif;
-  text-transform: uppercase;
   font-style: normal;
   font-weight: 800;
   font-size: 1.2em;
