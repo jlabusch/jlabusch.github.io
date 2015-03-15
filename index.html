@@ -23,9 +23,8 @@
             <p>I've worked on call routing and real time billing for telcos,
             networked point-of-sale devices for the entertainment industry,
             large news websites, identity and access management systems and
-            a bunch of other stuff.</p>
-
-            <p>I also do project management.</p>
+            a bunch of other stuff.<br/>
+            I also do project management.</p>
 
             <ul class="list-inline">
                 <li><a target="_blank" href="https://github.com/jlabusch" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a></li>
@@ -43,8 +42,8 @@
                     chunks_that_fit = { x: max_chunks.x, y: max_chunks.y },
                     actual_padding = {x: 1, y: 1};
 
-                var wwidth  = window.innerWidth, //document.documentElement.clientWidth,
-                    wheight = window.innerHeight; //document.documentElement.clientHeight;
+                var wwidth  = window.innerWidth,
+                    wheight = window.innerHeight;
 
                 chunks_that_fit.x = min(Math.ceil(wwidth/img_size.x), chunks_that_fit.x);
                 chunks_that_fit.y = min(Math.ceil(wheight/img_size.y), chunks_that_fit.y);
@@ -64,7 +63,7 @@
                         queue_bg_fill(n, n, actual_padding, img_size, bg, wwidth, wheight, max_chunks);
                     }
                     if (n < chunks_that_fit.x || n < chunks_that_fit.y){
-                        setTimeout(function(){ next(n+1) }, 10);
+                        next(n+1);
                     }
                 }
                 next(0);

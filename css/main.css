@@ -13,20 +13,12 @@ body {
     line-height: 0.5em;
 }
 
-.hdn {
-    display: none;
-}
-
 #bglayer div {
     position: absolute;
     margin: 0;
     padding: 0;
     background-repeat: no-repeat;
     display: inline-block;
-}
-
-#bglayer div:hover {
-    opacity: 1.0;
 }
 
 #banner {
