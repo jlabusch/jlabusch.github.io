@@ -63,7 +63,7 @@
                         queue_bg_fill(n, n, actual_padding, img_size, bg, wwidth, wheight, max_chunks);
                     }
                     if (n < chunks_that_fit.x || n < chunks_that_fit.y){
-                        next(n+1);
+                        setTimeout(function(){ next(n+1); }, 0);
                     }
                 }
                 next(0);
@@ -109,7 +109,6 @@
                 }
             }
             function bg_fill(div, x, y, actual_padding, img_size, bg, wwidth, wheight, max_chunks){
-                div.style['background-image'] = 'url("img/s/rise/' + pad(x) + pad(y) + '.jpg")';
                 var padding = {
                     x: actual_padding.x*(1+x),
                     y: actual_padding.y*(1+y)
@@ -119,11 +118,7 @@
                 var calc_left  = padding.x + img_size.x*x;
                 div.style.left = calc_left + 'px';
 
-                div.style.display = 'inline-block';
-                div.style.width = img_size.x + 'px';
-                div.style.height = img_size.y + 'px';
-
-                div.style.opacity = 1 - max(x/max_chunks.x, y/max_chunks.y);
+                div.className = 'shown';
 
                 var clip = {x: img_size.x, y: img_size.y, changed: false};
                 if (calc_top + 1 + img_size.y > wheight){
@@ -136,13 +131,35 @@
                 }
                 if (clip.changed){
                     if (clip.x < 2 || clip.y < 2){
-                        div.style.display = 'none';
+                        div.className = 'hidden';
                     }else{
-                        div.setAttribute('data-clip', JSON.stringify(clip));
                         div.style.width = clip.x + 'px';
                         div.style.height = clip.y + 'px';
                     }
+                }else{
+                    div.style.width = img_size.x + 'px';
+                    div.style.height = img_size.y + 'px';
                 }
+
+                var default_opacity = 1 - max(x/max_chunks.x, y/max_chunks.y);
+                div.style.opacity = default_opacity;
+
+                function flick_on(n, next){
+                    setTimeout(
+                        function(){ div.style.opacity = 1.0; next && next(); },
+                        n
+                    );
+                }
+                function flick_off(n, next){
+                    setTimeout(
+                        function(){ div.style.opacity = default_opacity; next && next(); },
+                        n
+                    );
+                }
+                div.addEventListener('mouseover', function(){
+                    flick_on(0, flick_off(500));
+                });
+
                 return div;
             }
         </script>

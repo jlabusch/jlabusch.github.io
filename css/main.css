@@ -18,8 +18,27 @@ body {
     margin: 0;
     padding: 0;
     background-repeat: no-repeat;
+    background-image: url("../img/5407316327_1ca2ff5569_o.jpg");
+    background-attachment: fixed;
+}
+
+.hidden {
+    display: none;
+}
+.shown {
     display: inline-block;
 }
+
+.op_01 = { opacity: 0.1; }
+.op_02 = { opacity: 0.2; }
+.op_03 = { opacity: 0.3; }
+.op_04 = { opacity: 0.4; }
+.op_05 = { opacity: 0.5; }
+.op_06 = { opacity: 0.6; }
+.op_07 = { opacity: 0.7; }
+.op_08 = { opacity: 0.8; }
+.op_09 = { opacity: 0.9; }
+.op_10 = { opacity: 1.0; }
 
 #banner {
     position: absolute;
@@ -42,6 +61,9 @@ body {
   display: inline-block;
   padding-left: 5px;
   padding-right: 5px;
+}
+.list-inline > li > a {
+  font-size: 1.5em;
 }
 
 .btn-social {
