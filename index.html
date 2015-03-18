@@ -18,13 +18,14 @@
         <div id="banner">
             <h1>Hi,</h1>
 
-            <p>I'm a software guy from New Zealand.</p>
+            <h2>I'm a software guy from New Zealand.</h2>
 
             <p>I've worked on call routing and real time billing for telcos,
             networked point-of-sale devices for the entertainment industry,
             large news websites, identity and access management systems and
-            a bunch of other stuff.<br/>
-            I also do project management.</p>
+            a bunch of other stuff.<p/>
+            <p>My roles include project management, business analysis, solution design
+            and dev work&hellip; but preferably not all at the same time.</p>
 
             <ul class="list-inline">
                 <li><a target="_blank" href="https://github.com/jlabusch" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a></li>
@@ -33,135 +34,6 @@
                 <li><a target="_blank" href="http://nz.linkedin.com/pub/jacques-labuschagne/0/47a/512/" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a></li>
             </ul>
         </div>
-        <script type="text/javascript">
-            function bg_controller(){
-                var bg = document.getElementById('bglayer');
-                var img, div;
-                var img_size = { x: 49, y: 43 },
-                    max_chunks = { x: 40, y: 30 },
-                    chunks_that_fit = { x: max_chunks.x, y: max_chunks.y },
-                    actual_padding = {x: 1, y: 1};
-
-                var wwidth  = window.innerWidth,
-                    wheight = window.innerHeight;
-
-                chunks_that_fit.x = min(Math.ceil(wwidth/img_size.x), chunks_that_fit.x);
-                chunks_that_fit.y = min(Math.ceil(wheight/img_size.y), chunks_that_fit.y);
-
-                function next(n){
-                    for (var x = 0; x < n && x < chunks_that_fit.x; ++x){
-                        if (n < chunks_that_fit.y){
-                            queue_bg_fill(x, n, actual_padding, img_size, bg, wwidth, wheight, max_chunks);
-                        }
-                    }
-                    for (var y = 0; y < n && y < chunks_that_fit.y; ++y){
-                        if (n < chunks_that_fit.x){
-                            queue_bg_fill(n, y, actual_padding, img_size, bg, wwidth, wheight, max_chunks);
-                        }
-                    }
-                    if (n < chunks_that_fit.x && n < chunks_that_fit.y){
-                        queue_bg_fill(n, n, actual_padding, img_size, bg, wwidth, wheight, max_chunks);
-                    }
-                    if (n < chunks_that_fit.x || n < chunks_that_fit.y){
-                        setTimeout(function(){ next(n+1); }, 0);
-                    }
-                }
-                next(0);
-
-            }
-            bg_controller();
-            (function(){
-                var called_at;
-                window.addEventListener('resize', function(){
-                    called_at = new Date();
-                    var id = setTimeout(function(){
-                        var now = new Date();
-                        //console.log('handler ' + id + ' for resize from ' + (now - called_at) + 'ms ago');
-                        if (now - called_at >= 100){
-                            called_at = now;
-                            console.log('firing ' + id);
-                            bg_controller();
-                        }
-                    }, 100);
-                });
-            })();
-            function max(a, b){
-                return a > b ? a : b;
-            }
-            function min(a, b){
-                return a > b ? b : a;
-            }
-            function pad(x){
-                return  x < 10  ? '0' + x : '' + x;
-            }
-            function queue_bg_fill(x, y, actual_padding, img_size, bg, wwidth, wheight, max_chunks){
-                var id = '' + pad(x) + pad(y);
-                var div = document.getElementById(id);
-                var created = false;
-                if (!div){
-                    div = document.createElement('div');
-                    div.setAttribute('id', id);
-                    created = true;
-                }
-                div = bg_fill.apply(this, [div].concat(Array.prototype.slice.call(arguments, 0)));
-                if (created){
-                    bg.appendChild(div);
-                }
-            }
-            function bg_fill(div, x, y, actual_padding, img_size, bg, wwidth, wheight, max_chunks){
-                var padding = {
-                    x: actual_padding.x*(1+x),
-                    y: actual_padding.y*(1+y)
-                };
-                var calc_top = padding.y + img_size.y*y;
-                div.style.top = calc_top + 'px';
-                var calc_left  = padding.x + img_size.x*x;
-                div.style.left = calc_left + 'px';
-
-                div.className = 'shown';
-
-                var clip = {x: img_size.x, y: img_size.y, changed: false};
-                if (calc_top + 1 + img_size.y > wheight){
-                    clip.y = wheight - (calc_top+1);
-                    clip.changed = true;
-                }
-                if (calc_left + 1 + img_size.x > wwidth){
-                    clip.x = wwidth - (calc_left+1);
-                    clip.changed = true;
-                }
-                if (clip.changed){
-                    if (clip.x < 2 || clip.y < 2){
-                        div.className = 'hidden';
-                    }else{
-                        div.style.width = clip.x + 'px';
-                        div.style.height = clip.y + 'px';
-                    }
-                }else{
-                    div.style.width = img_size.x + 'px';
-                    div.style.height = img_size.y + 'px';
-                }
-
-                var default_opacity = 1 - max(x/max_chunks.x, y/max_chunks.y);
-                div.style.opacity = default_opacity;
-
-                function flick_on(n, next){
-                    setTimeout(
-                        function(){ div.style.opacity = 1.0; next && next(); },
-                        n
-                    );
-                }
-                function flick_off(n, next){
-                    setTimeout(
-                        function(){ div.style.opacity = default_opacity; next && next(); },
-                        n
-                    );
-                }
-                div.addEventListener('mouseover', function(){
-                    flick_on(0, flick_off(500));
-                });
-
-                return div;
-            }
-        </script>
+        <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>

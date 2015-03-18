@@ -20,6 +20,15 @@ body {
     background-repeat: no-repeat;
     background-image: url("../img/5407316327_1ca2ff5569_o_low.jpg");
     background-attachment: fixed;
+    transition: all 2s ease 0s;
+}
+
+#bglayer div:hover {
+    -o-transform:      rotate(360deg) scale(0.9);
+    -ms-transform:     rotate(360deg) scale(0.9);
+    -webkit-transform: rotate(360deg) scale(0.9);
+    -moz-transform:    rotate(360deg) scale(0.9);
+    transform:         rotate(360deg) scale(0.9);
 }
 
 .hidden {
@@ -29,24 +38,13 @@ body {
     display: inline-block;
 }
 
-.op_01 = { opacity: 0.1; }
-.op_02 = { opacity: 0.2; }
-.op_03 = { opacity: 0.3; }
-.op_04 = { opacity: 0.4; }
-.op_05 = { opacity: 0.5; }
-.op_06 = { opacity: 0.6; }
-.op_07 = { opacity: 0.7; }
-.op_08 = { opacity: 0.8; }
-.op_09 = { opacity: 0.9; }
-.op_10 = { opacity: 1.0; }
-
 #banner {
     position: absolute;
     top: 0px;
     left: 0px;
     margin: 0 5% 0 5%;
-    padding: 0 0 0 20px;
-    max-width: 600px;
+    padding: 0 20px 0 20px;
+    max-width: 550px;
     height: 100%;
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.5);
