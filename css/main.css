@@ -83,6 +83,21 @@ body {
     transition: all .3s ease-in-out;
 }
 
+ul {
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .btn-outline:hover,
 .btn-outline:focus,
 .btn-outline:active,
