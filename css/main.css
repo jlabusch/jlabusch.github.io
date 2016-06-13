@@ -6,6 +6,14 @@ body {
     color: #fff;
 }
 
+h2 {
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 0px;
+}
+
 #bglayer {
     position: absolute;
     top: 0;
